@@ -2,8 +2,7 @@ version: '3.8'
 
 services:
   portfolio:
-    build: .
-    image: portfolio
+    image: hichemlamine/portfolio
     ports:
       - "8080:5000"
     environment:
