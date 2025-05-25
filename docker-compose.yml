@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  portfolio:
+    build: .
+    image: portfolio
+    ports:
+      - "8080:5000"
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped
