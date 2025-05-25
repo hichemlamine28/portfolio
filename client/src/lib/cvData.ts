@@ -43,11 +43,11 @@ const calculateYearsOfExperience = (): number => {
 export const personalInfo: PersonalInfo = {
   firstName: "Hichem",
   lastName: "ELAMINE",
-  title: "Lead DevSecOps Cloud & Coach Agile • Expert Technique Atlassian",
+  title: "Architect & Lead DevSecOps Cloud • Coach Agile • Expert Technique Atlassian",
   email: "hichemlamine@gmail.com",
   phone: "+33 7 52 13 96 63",
   linkedin: "https://www.linkedin.com/in/hichem-elamine/",
-  summary: `Fort de plus de ${calculateYearsOfExperience()} ans d'expérience depuis l'obtention de mon Master en Informatique, je suis Expert DevSecOps, Architecte Cloud, Coach Agile hautement qualifié avec une expertise en produits et plateformes Atlassian. J'ai une solide expérience en leadership, en coaching d'équipes, en conception d'architectures cloud et en mise en œuvre de pratiques DevOps sécurisées dans divers secteurs.`,
+  summary: `Fort de plus de 19 ans d'expérience depuis l'obtention de mon Master en Informatique, je suis Expert DevSecOps, Architecte Cloud et Coach Agile hautement qualifié. Spécialisé dans l'écosystème Atlassian (Jira, Confluence, Jira Service Management, eazybi, bitbucket ...), je maîtrise les méthodologies Agiles (Scrum, Kanban, SAFe, ...) et possède une expertise approfondie en leadership technique, coaching d'équipes, conception d'architectures cloud et mise en œuvre de pratiques DevSecOps sécurisées dans des environnements complexes et multi-sectoriels.`,
   yearsOfExperience: calculateYearsOfExperience()
 };
 
@@ -226,7 +226,7 @@ export const experiences: Experience[] = [
     projects: [
       {
         name: "Formations DevOps",
-        description: "Animation de formations pour des groupes de 10/15 ingénieurs",
+        description: "Animation de formations d'un mois pour des groupes de 10/15 ingénieurs",
         achievements: [
           "Docker pour linux, déploiement de conteneurs virtuels (vagrant, packer, Docker, docker-compose)",
           "Automatisation d'orchestration avec puppet, ansible, vagrant, swarm et kubernetes",

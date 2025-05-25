@@ -61,9 +61,7 @@ export default function ContactSection() {
     "Architecture Cloud (AWS, GCP, Azure, OpenStack)",
     "DevSecOps & Automatisation",
     "Coaching Agile & Leadership Technique",
-    "Infrastructures à Grande Échelle",
-    "Méthodologies de travail : Scrum, Kanban, SAFe, etc.",
-    "Expertise des produits et plateformes Atlassian"
+    "Infrastructure à Grande Échelle"
   ];
 
   return (
