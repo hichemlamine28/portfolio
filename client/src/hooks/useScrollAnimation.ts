@@ -34,11 +34,27 @@ export function useActiveSection() {
   useEffect(() => {
     const updateActiveSection = () => {
       const sections = document.querySelectorAll('section[id]');
+      const certificationDiv = document.querySelector('#certifications');
+      const navHeight = 80;
+      const scrollPosition = window.pageYOffset + navHeight;
+      
       let current = '';
       
+      // Check if we're in the certifications section specifically
+      if (certificationDiv) {
+        const certTop = certificationDiv.offsetTop;
+        const certBottom = certTop + certificationDiv.offsetHeight;
+        if (scrollPosition >= certTop && scrollPosition < certBottom) {
+          current = 'certifications';
+          setActiveSection(current);
+          return;
+        }
+      }
+      
+      // Check other sections
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        if (window.pageYOffset >= sectionTop - 200) {
+        if (scrollPosition >= sectionTop - 100) {
           current = section.getAttribute('id') || '';
         }
       });

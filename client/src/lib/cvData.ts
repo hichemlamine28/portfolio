@@ -19,7 +19,7 @@ export interface Project {
 export interface Skill {
   name: string;
   level: number;
-  category: 'cloud' | 'devops' | 'monitoring' | 'security' | 'atlassian' | 'agile' | 'containers' | 'programming' | 'databases' | 'networking';
+  category: 'cloud' | 'devops' | 'monitoring' | 'security' | 'atlassian' | 'agile' | 'containers' | 'programming' | 'databases' | 'networking' | 'testing';
 }
 
 export interface PersonalInfo {
@@ -29,6 +29,7 @@ export interface PersonalInfo {
   email: string;
   phone: string;
   linkedin: string;
+  github?: string;
   summary: string;
   yearsOfExperience: number;
 }
@@ -43,10 +44,11 @@ const calculateYearsOfExperience = (): number => {
 export const personalInfo: PersonalInfo = {
   firstName: "Hichem",
   lastName: "ELAMINE",
-  title: "Architect & Lead DevSecOps Cloud • Coach Agile • Expert Technique Atlassian",
+  title: "Architecte & Lead DevSecOps Cloud • Scrum Master • Coach DevOps Agile • Expert Technique Atlassian",
   email: "hichemlamine@gmail.com",
   phone: "+33 7 52 13 96 63",
   linkedin: "https://www.linkedin.com/in/hichem-elamine/",
+  github: "https://github.com/hichemlamine28",
   summary: `Fort de plus de 19 ans d'expérience depuis l'obtention de mon Master en Informatique, je suis Expert DevSecOps, Architecte Cloud et Coach Agile hautement qualifié. Spécialisé dans l'écosystème Atlassian (Jira, Confluence, Jira Service Management, eazybi, bitbucket ...), je maîtrise les méthodologies Agiles (Scrum, Kanban, SAFe, ...) et possède une expertise approfondie en leadership technique, coaching d'équipes, conception d'architectures cloud et mise en œuvre de pratiques DevSecOps sécurisées dans des environnements complexes et multi-sectoriels.`,
   yearsOfExperience: calculateYearsOfExperience()
 };
@@ -68,20 +70,14 @@ export const experiences: Experience[] = [
           "Build des images docker kolla & Kolla-Ansible pour déploiement des composantes openstack",
           "Build des images de boot Debian pour PXE",
           "Déploiement de Openstack via Kolla-ansible",
-          "Fix et correction des bugs et Support continu",
-          "Mise en place et mise à jour des cluster Swift",
-          "Mise en place et entretien de la plateforme gitlab, registry, dépôts stello sur kubernetes",
-          "Mise en place et entretien de la supervision grafana, prometheus elk et victoria metrics",
-          "Documentation de l'infrastructure, des méthodes de déploiement et des incidents",
-          "Préparation des DI (demande d'intervention)",
-          "Support utilisateurs et correction des incidents de la prod"
+          "Fix et correction des bugs et Support continu"
         ]
       }
     ],
-    technologies: ["OpenStack", "Docker", "Kubernetes", "Ansible", "Kolla", "Kolla-ansible", "Vault", "PXE", "CentOS", "Debian", "Barbican", "Neutron", "Nova", "Swift", "Keepalive", "QEMU", "Libvirt", "GitLab", "Python", "Shell", "Grafana", "Prometheus", "Alert-manager", "ELK", "Victoria Metrics"]
+    technologies: ["OpenStack", "Docker", "Kubernetes", "Ansible", "Kolla"]
   },
   {
-    id: "thales-2021",
+    id: "thales-2021-2024",
     company: "THALES",
     position: "Coach DevOps, Architecte Cloud, Expert Technique Atlassian",
     startDate: "Août 2021",
@@ -138,17 +134,27 @@ export const experiences: Experience[] = [
     isCurrent: false,
     projects: [
       {
-        name: "Projet Application Blanche Java",
+        name: "Application Blanche Java",
         description: "Application prototype de base pour les Projets des équipes GRDF",
         achievements: [
-          "Accompagnement aux Mises à jour de gitlab",
-          "Accompagnement aux Mise à jour de Artifactory Jfrog",
           "Écriture des pipelines sur gitlab-ci pour déployer l'application",
           "Rédaction des needs/dependencies sur Gitlab-ci",
           "Modification des config gitlab-runner et adaptation sur docker-machine pour le lancement des jobs",
-          "Administration de gitlab et Artifactory (comptes/users/accès/tokens/projets/...)",
           "Review du code et application des bons pratiques",
-          "Ajout des différents outils de test/qualité du code (Sonar/tokens/...)"
+          "Ajout des différents outils de test/qualité du code (Sonar/tokens/...)",
+          "Développement et optimisation de l'application prototype"
+        ]
+      },
+      {
+        name: "Mise à jour et Administration GitLab et Artifactory JFrog",
+        description: "Administration et maintenance des plateformes DevOps GRDF",
+        achievements: [
+          "Accompagnement aux mises à jour de GitLab",
+          "Accompagnement aux mises à jour d'Artifactory JFrog",
+          "Administration de GitLab (comptes/users/accès/tokens/projets/...)",
+          "Administration d'Artifactory (dépôts/permissions/quotas/...)",
+          "Gestion des configurations et optimisations de performance",
+          "Support et formation des équipes sur les outils"
         ]
       }
     ],
@@ -180,7 +186,12 @@ export const experiences: Experience[] = [
           "Gestion des identités et d'accès via Google Cloud IAM",
           "Utiliser les charts Helm pour déployer et configurer les BD (RethinkDB, Mariadb, postgres)",
           "Mise en place de la supervision via google cloud monitoring, google cloud logging",
-          "Mise en place d'une plateforme de supervision grafana prometheus Elasticsearch Logstach Kibana"
+          "Mise en place d'une plateforme de supervision grafana prometheus Elasticsearch Logstach Kibana",
+          "Optimisation des performances des microservices et gestion de la scalabilité",
+          "Mise en place des stratégies de déploiement Blue/Green et Canary",
+          "Configuration des load balancers et reverse proxy pour la haute disponibilité",
+          "Intégration des outils de sécurité et scan de vulnérabilités",
+          "Formation des équipes de développement aux bonnes pratiques DevOps"
         ]
       },
       {
@@ -195,22 +206,124 @@ export const experiences: Experience[] = [
           "Intégrer les scripts de test nécessaire (Cypress, Sonar, Sentry)",
           "Créer les clusters Kubernetes AKS pour le déploiement",
           "Créer les bases de données nécessaires cosmosDB (puis mongodb via les charts Helm)",
-          "Mise en place de la supervision via azure monitor, azure applications insights"
+          "Mise en place de la supervision via azure monitor, azure applications insights",
+          "Configuration des alertes et notifications automatiques",
+          "Optimisation des performances des requêtes et de la base de données",
+          "Mise en place des stratégies de sauvegarde et de récupération",
+          "Sécurisation des accès et des données sensibles",
+          "Documentation technique complète et formation des utilisateurs"
         ]
       },
       {
-        name: "Autres Projets (BP-Profiling, Speach, Crips, BP-Erp, BP-Monitoring, Smartocr, Difference)",
-        description: "Multiples projets internes et clients avec architectures cloud diverses",
+        name: "BP-Profiling",
+        description: "Plateforme de profilage et d'analyse comportementale pour RH",
         achievements: [
-          "Conception d'architectures sur Azure, GCP et AWS",
-          "Gestion des coûts et facturation cloud",
-          "Mise en place de pipelines CI/CD sur Jenkins, Bitbucket, GitLab",
-          "Déploiement Kubernetes (AKS, GKE, EKS)",
-          "Intégration de tests automatisés (Cypress, Sonar, Sentry)",
-          "Configuration de monitoring (Grafana, Prometheus, ELK)",
-          "Gestion de bases de données (PostgreSQL, MongoDB, CosmosDB)",
-          "Workshops hebdomadaires DevOps et cloud",
-          "Animation de meetings de pilotage stratégique et technique"
+          "Conception et architecture cloud complète sur Azure avec AKS",
+          "Mise en place du pipeline CI/CD avec Azure DevOps et intégration continue",
+          "Configuration du monitoring avancé avec Azure Application Insights",
+          "Implémentation de la base de données CosmosDB avec réplication multi-région",
+          "Développement des APIs REST pour l'analyse comportementale",
+          "Intégration des algorithmes de machine learning pour le profilage",
+          "Mise en place des tableaux de bord analytics en temps réel",
+          "Configuration de la sécurité et conformité RGPD",
+          "Tests de charge et optimisation des performances",
+          "Formation des équipes RH à l'utilisation de la plateforme"
+        ]
+      },
+      {
+        name: "Speach",
+        description: "Application de reconnaissance vocale et traitement de la parole",
+        achievements: [
+          "Architecture et déploiement complet sur GCP avec Google Kubernetes Engine (GKE)",
+          "Intégration des APIs Google Speech-to-Text et Text-to-Speech",
+          "Mise en place du pipeline CI/CD avec Jenkins et automatisation des tests",
+          "Configuration du monitoring avec Grafana et Prometheus",
+          "Développement des microservices pour le traitement audio en temps réel",
+          "Optimisation des performances pour le traitement de gros volumes audio",
+          "Mise en place du stockage distribué pour les fichiers audio avec Google Cloud Storage",
+          "Intégration des modèles de machine learning personnalisés",
+          "Configuration de la sécurité et chiffrement des données audio",
+          "Tests de performance et optimisation de la latence"
+        ]
+      },
+      {
+        name: "Crips",
+        description: "Système de gestion de données critiques et sécurisées",
+        achievements: [
+          "Architecture sécurisée sur AWS avec Amazon EKS",
+          "Mise en place de PostgreSQL en haute disponibilité avec réplication",
+          "Intégration de HashiCorp Vault pour la gestion des secrets",
+          "Développement de tests automatisés complets avec Cypress",
+          "Configuration des politiques de sécurité et accès granulaires",
+          "Mise en place du chiffrement end-to-end des données sensibles",
+          "Implémentation des audits de sécurité automatisés",
+          "Configuration des sauvegardes automatiques et plans de récupération",
+          "Monitoring de sécurité avec SIEM et alertes en temps réel",
+          "Documentation des procédures de sécurité et formation des équipes"
+        ]
+      },
+      {
+        name: "BP-Erp",
+        description: "Solution ERP complète interne pour la gestion d'entreprise",
+        achievements: [
+          "Conception d'architecture multi-cloud hybride (Azure/AWS)",
+          "Mise en place de l'intégration continue avec GitLab CI/CD",
+          "Configuration du monitoring centralisé avec stack ELK",
+          "Optimisation et contrôle des coûts cloud avec FinOps",
+          "Développement des modules de gestion financière et RH",
+          "Intégration des systèmes existants et migration des données",
+          "Mise en place des workflows automatisés pour les processus métier",
+          "Configuration des tableaux de bord executives et KPIs",
+          "Tests de performance et optimisation de la scalabilité",
+          "Formation des utilisateurs et support technique"
+        ]
+      },
+      {
+        name: "BP-Monitoring",
+        description: "Plateforme centralisée de supervision et monitoring pour tous les projets",
+        achievements: [
+          "Déploiement de la stack complète Grafana/Prometheus/ELK",
+          "Configuration d'alerting multi-canal (email, SMS, Slack, Teams)",
+          "Création de dashboards personnalisés pour chaque client et projet",
+          "Intégration avec tous les projets BREAKPOINT pour monitoring unifié",
+          "Mise en place des métriques custom et business KPIs",
+          "Configuration des SLA monitoring et alertes de violation",
+          "Automatisation des rapports de performance et disponibilité",
+          "Intégration avec les outils ITSM pour la gestion des incidents",
+          "Optimisation des performances de la plateforme de monitoring",
+          "Formation des équipes sur l'utilisation des outils de monitoring"
+        ]
+      },
+      {
+        name: "Smartocr",
+        description: "Solution OCR intelligente pour reconnaissance automatique de documents",
+        achievements: [
+          "Architecture containerisée complète avec Docker et Kubernetes",
+          "Développement d'APIs REST avec rate limiting et authentification",
+          "Intégration de pipelines de machine learning pour l'OCR avancé",
+          "Configuration du stockage objet sur cloud pour les documents",
+          "Mise en place du traitement en batch pour gros volumes",
+          "Intégration des modèles d'IA pour reconnaissance de formulaires complexes",
+          "Configuration des workflows de validation et correction manuelle",
+          "Optimisation des performances pour traitement temps réel",
+          "Mise en place des métriques de qualité et précision de reconnaissance",
+          "Interface web pour upload et visualisation des résultats"
+        ]
+      },
+      {
+        name: "Difference",
+        description: "Outil avancé de comparaison et analyse de différences de code et documents",
+        achievements: [
+          "Conception d'architecture microservices avec communication asynchrone",
+          "Mise en place du CI/CD automatisé avec tests unitaires et intégration",
+          "Développement de tests de performance avec JMeter et gatling",
+          "Documentation technique complète avec API documentation automatique",
+          "Intégration avec les systèmes de contrôle de version (Git, SVN)",
+          "Développement d'algorithmes optimisés pour comparaison de gros fichiers",
+          "Interface utilisateur intuitive avec visualisation des différences",
+          "Configuration des notifications automatiques pour changements critiques",
+          "Intégration avec les outils de review de code",
+          "Optimisation des performances pour traitement de fichiers volumineux"
         ]
       }
     ],
@@ -239,63 +352,114 @@ export const experiences: Experience[] = [
         ]
       }
     ],
-    technologies: ["Terraform", "Ansible", "Shell/Bash", "CentOS", "Ubuntu", "Vagrant", "Git", "Docker", "Docker Machine", "Docker Swarm", "Kubernetes", "Lens", "GCP", "AWS", "Azure", "Grafana", "Prometheus", "Cadvisor", "Node-exporter", "HAProxy-exporter", "Blackbox-exporter", "ELK", "Nginx", "GKE", "AKS", "EKS", "GCR", "ACR", "ECR", "CloudWatch", "VPC", "VPN", "Azure DevOps", "Azure Deploy", "Amazon S3", "Amazon Glacier", "Azure Monitor", "Azure Blob Storage", "Azure CosmosDB", "Azure SQL Database", "Azure Key Vault", "Google Cloud Monitoring", "Google Cloud Logging"]
+    technologies: ["GCP", "Azure", "AWS", "Kubernetes", "GKE", "AKS", "EKS", "Terraform", "Ansible", "Helm", "Jenkins", "Bitbucket", "React", "Angular", "Java", "Nest", "Docker", "Docker Swarm", "Python", "Grafana", "Prometheus", "ELK", "Azure Monitor", "Google Cloud Monitoring", "SVN", "Git", "SonarQube", "SonarCloud", "Cypress", "RabbitMQ", "LDAP", "Nexus", "MongoDB", "MariaDB", "RethinkDB", "PostgreSQL"]
   },
   {
     id: "mayar-2017",
     company: "MAYAR-INFO",
-    position: "Ingénieur DevOps / Java/JEE / Scrum Master",
+    position: "Ingénieur DevOps / Java-JEE / Scrum Master",
     startDate: "Novembre 2017",
     endDate: "Août 2019",
     isCurrent: false,
     projects: [
       {
-        name: "Digitalisation et transformation PREDATORS",
+        name: "PREDATORS - Digitalisation et transformation",
         description: "Service streaming et migration vers cloud aws/azure/digital Ocean/1and1 (ionos)",
         achievements: [
           "Digitalisation et transformation totale de l'application PREDATORS (SERVICE STREAMING)",
           "Migration vers cloud aws/azure/digital Ocean/1and1 (ionos) pour plusieurs Sociétés",
-          "Étude et Création d'une application gigantesque SBM pour un grand magasin",
+          "Conception des diverses architectures cloud gcp/azure/aws",
+          "Bug fixing, Développement de nouvelles fonctionnalités et tests",
+          "Tests unitaires, fonctionnels, de régression et de performances"
+        ]
+      },
+      {
+        name: "PREDATORS - DevOps et CI/CD",
+        description: "Mise en place de l'infrastructure DevOps et des pipelines CI/CD",
+        achievements: [
+          "Jenkins et intégration continue / déploiement continu (CI/CD)",
+          "Containerisation des API avec Docker, docker-compose, docker swarm, ansible, vagrant",
+          "Déploiement Canarie et Blue/Green (serveur de test/serveur de production)",
+          "Customisation et collecte de la trace applicative dans un puit de logs ELK, cAdvisor, logstash",
+          "Communication bidirectionnelle entre API et processus Data avec Kafka"
+        ]
+      },
+      {
+        name: "Gestion Agile et Scrum Master",
+        description: "Animation et gestion des équipes selon les méthodologies Agiles",
+        achievements: [
           "Réunions quotidiennes agiles Scrum pour fixer les tâches et évaluer l'avancement",
           "Découpage et estimation des tâches avec méthode agile Scrum et Git",
           "Livraison hebdomadaire des stories et mise à jour quotidienne de scrum-board",
-          "Conception des diverses architectures cloud gcp/azure/aws",
-          "Bug fixing, Développement de nouvelles fonctionnalités et tests",
-          "Tests unitaires, fonctionnels, de régression et de performances",
-          "Jenkins et intégration continue / déploiement continu (CI/CD)",
-          "Customisation et collecte de la trace applicative dans un puit de logs ELK, cAdvisor, logstash",
-          "Communication bidirectionnelle entre API et processus Data avec Kafka",
-          "Containerisation des API avec Docker, docker-compose, docker swarm, ansible, vagrant",
-          "Déploiement Canarie et Blue/Green (serveur de test/serveur de production)"
+          "Animation des cérémonies Scrum (daily, sprint planning, retrospective)",
+          "Coaching des équipes sur les pratiques Agiles"
+        ]
+      },
+      {
+        name: "Application SBM Grand Magasin",
+        description: "Étude et Création d'une application gigantesque SBM pour un grand magasin",
+        achievements: [
+          "Analyse des besoins et conception de l'architecture applicative",
+          "Développement d'une solution complète de gestion commerciale",
+          "Intégration des systèmes de paiement et de gestion des stocks",
+          "Mise en place des APIs REST pour l'interconnexion des systèmes",
+          "Tests de charge et optimisation des performances",
+          "Formation des utilisateurs finaux"
         ]
       }
     ],
-    technologies: ["Java/JEE", "Shell", "Angular", "AngularJS", "Bootstrap", "SpringBoot", "Agile", "Scrum", "Kanban", "Git", "Maven", "Ansible", "Docker", "Grafana", "ELK", "TCP/IP", "SSH", "VPN", "VPC", "GKE", "EKS", "AKS", "EC2", "GCR", "ACR", "ECR", "Logstash", "cAdvisor", "SonarQube", "Kubernetes", "Cloud", "GCP", "AWS", "Azure", "Promtail", "Loki", "Nagios", "Zabbix", "pfSense", "Snort", "Asterisk", "IPS", "ICS", "FTP", "Libvirt", "VMware", "Vagrant", "VirtualBox", "Packer", "Docker Machine", "Docker Swarm", "Dockerfile", "Docker Compose", "DockerHub", "Prometheus", "Grafana", "Elasticsearch", "Kibana", "Jenkins", "SonarCube", "GitHub", "Cloud-init", "Cassandra", "PostgreSQL", "NoSQL", "CI/CD", "Jira", "Kafka"]
-  },
-  {
+    technologies: ["Java/JEE", "Shell", "Angular", "AngularJS", "Bootstrap", "SpringBoot", "Agile", "Scrum", "Kanban", "Git", "Maven", "Ansible", "Docker", "Grafana", "ELK", "TCP/IP", "SSH", "VPN", "VPC", "GKE", "EKS", "AKS", "EC2", "GCR", "ACR", "ECR", "Logstash", "cAdvisor", "SonarQube", "Kubernetes", "Cloud", "GCP", "AWS", "Azure", "Promtail", "Loki", "Nagios", "Zabbix", "pfSense", "Snort", "Asterisk", "IPS", "ICS", "FTP", "Libvirt", "VMware", "Vagrant", "VirtualBox", "Packer", "Docker Machine", "Docker Swarm", "Dockerfile", "Docker Compose", "DockerHub", "Prometheus", "Elasticsearch", "Kibana", "Jenkins", "SonarCube", "GitHub", "Cloud-init", "Cassandra", "PostgreSQL", "NoSQL", "CI/CD", "Jira", "Kafka"]
+  }
+
+  ,{
     id: "mayar-2015",
-    company: "MAYAR-INFO / PREDAT-S",
-    position: "Administrateur Système - DevOps / Développeur Java/JEE",
+    company: "MAYAR-INFO",
+    position: "Administrateur Système DevOps / Développeur Java-JEE",
     startDate: "Février 2015",
     endDate: "Novembre 2017",
     isCurrent: false,
     projects: [
       {
-        name: "Conception et administration serveurs PREDATORS",
-        description: "Conception, création, mise en place et administration des serveurs sharing et/ou streaming pour différentes entreprises",
+        name: "Serveurs sharing/streaming PREDATORS",
+        description: "Conception et administration de serveurs de streaming pour entreprises",
         achievements: [
-          "Installation, configuration et administration des serveurs sharing et/ou streaming",
-          "Importation quotidienne des clés et des Stream et veillance à la stabilité des serveurs",
-          "Analyse du cahier des charges et conception de l'application pour chaque client",
-          "Réalisation des interfaces graphiques et la connexion entre elles",
-          "Développement des fonctionnalités demandées avec découpage et estimation des tâches",
-          "Utilisation de la méthode agile Scrum et Git comme outil de versioning",
-          "Rapports hebdomadaires des états de serveurs et quotidiens des réclamations clients",
-          "Mise en place des plateformes de supervision et de notifications (supervision proactive)"
+          "Installation, configuration et administration des serveurs sharing/streaming",
+          "Importation quotidienne des clés et streams",
+          "Veillance de la stabilité des serveurs et supervision",
+          "Analyse du cahier des charges et conception des applications clients",
+          "Développement des interfaces graphiques et des connexions",
+          "Fonctionnalités avec découpage et estimation des tâches",
+          "Méthode agile Scrum et versioning Git",
+          "Rapports hebdomadaires des serveurs et quotidiens des réclamations",
+          "Supervision proactive et notifications"
+        ]
+      },
+      {
+        name: "Migration cloud PREDATORS",
+        description: "Migration de l'infrastructure vers des solutions cloud",
+        achievements: [
+          "Conception d'architectures cloud multi-provider",
+          "Migration progressive des services vers le cloud",
+          "Mise en place de solutions de haute disponibilité",
+          "Optimisation des coûts cloud et monitoring des ressources",
+          "Automatisation des déploiements avec Ansible",
+          "Supervision avec Prometheus et Grafana"
+        ]
+      },
+      {
+        name: "Plateforme streaming avancée",
+        description: "Évolution de la plateforme avec des fonctionnalités avancées",
+        achievements: [
+          "Développement de nouvelles API REST",
+          "Architecture microservices",
+          "Optimisation des performances de streaming",
+          "Intégration de solutions CDN",
+          "Interfaces d'administration avancées",
+          "Tests de charge et optimisation de la scalabilité"
         ]
       }
     ],
-    technologies: ["XML", "SQL", "XtreamCode", "CMS", "Windows", "Linux Ubuntu", "Agile", "Scrum", "Kanban", "Git", "Shell/Bash", "PowerShell", "Ansible", "Prometheus", "Grafana", "Elasticsearch", "Logstash", "Kibana", "VMware", "QEMU/Libvirt", "TCP/IP", "Snort", "Asterisk", "pfSense", "IDS/ICS"]
+    technologies: ["XML", "SQL", "XtreamCode", "CMS", "Windows", "Linux", "Agile", "Scrum", "Git", "Shell", "PowerShell", "Ansible", "Prometheus", "Grafana", "ELK", "VMware", "TCP/IP", "Snort", "Asterisk", "pfSense"]
   },
   {
     id: "mayar-2010",
@@ -306,56 +470,301 @@ export const experiences: Experience[] = [
     isCurrent: false,
     projects: [
       {
-        name: "Développement applications de gestion",
-        description: "Réalisation de plusieurs MVP et applications de gestion pour diverses entreprises",
+        name: "Applications de gestion de fournisseurs",
+        description: "MVP et refonte d'applications de gestion pour diverses entreprises",
         achievements: [
           "Réalisation de plusieurs MVP et refonte d'applications de gestion de fournisseurs",
-          "Application pour la gestion de la configuration et de monitoring",
-          "MPS : Application et point de vente monoprix market",
-          "POSF : Application et point de vente Familia",
           "Conception et développement des applications de gestion des factures, commandes, fournisseurs et clients",
-          "Développement des sites, des Applications web et des applications de vente et de gestion de stock",
-          "Application pour l'audit de l'accessibilité numérique du contenu web",
-          "Système de gestion des dossiers d'aides à l'innovation",
-          "Site pour les demandes de financements des projets innovants",
           "Mise en place des bonnes pratiques de développement des services web REST",
-          "Développement de services web REST (Java 8, Spring, Spring security, spring-boot, Hibernate)",
+          "Développement de services web REST (Java 8, Spring, Spring security, spring-boot, Hibernate)"
+        ]
+      },
+      {
+        name: "Application de gestion et monitoring",
+        description: "Application pour la gestion de la configuration et de monitoring",
+        achievements: [
+          "Application pour la gestion de la configuration et de monitoring",
           "Réalisation des tests unitaires et des tests d'intégration (Junit, Spring-test)",
           "Réalisation d'un module de traitements par lots (batch) (Spring-batch, Spring-boot)",
           "Mise en place de Hibernate Envers pour reconstituer l'historique des dossiers techniques"
+        ]
+      },
+      {
+        name: "MPS - Application Monoprix Market",
+        description: "Application et point de vente monoprix market",
+        achievements: [
+          "MPS : Application et point de vente monoprix market",
+          "Développement des applications de vente et de gestion de stock",
+          "Interface utilisateur optimisée pour les points de vente",
+          "Intégration des systèmes de paiement et de caisse"
+        ]
+      },
+      {
+        name: "POSF - Application Familia",
+        description: "Application et point de vente Familia",
+        achievements: [
+          "POSF : Application et point de vente Familia",
+          "Développement des sites et des Applications web",
+          "Gestion des stocks et des produits",
+          "Interface de caisse et de gestion des ventes"
+        ]
+      },
+      {
+        name: "Application d'audit accessibilité web",
+        description: "Application pour l'audit de l'accessibilité numérique du contenu web",
+        achievements: [
+          "Application pour l'audit de l'accessibilité numérique du contenu web",
+          "Analyse automatisée de la conformité WCAG",
+          "Génération de rapports d'audit détaillés",
+          "Interface de suivi des corrections"
+        ]
+      },
+      {
+        name: "Système de gestion d'aides à l'innovation",
+        description: "Système de gestion des dossiers d'aides à l'innovation",
+        achievements: [
+          "Système de gestion des dossiers d'aides à l'innovation",
+          "Site pour les demandes de financements des projets innovants",
+          "Workflow de validation des dossiers",
+          "Suivi des projets et reporting"
         ]
       }
     ],
     technologies: ["Windows", "Tomcat", "Jetty", "Spring-boot", "Spring-batch", "Java 8/11/12", "SoapUI", "Junit 5", "JPA", "Applet", "Bootstrap", "PHP", "JavaScript", "HTML5", "CSS3", "Hibernate 5.2", "Nexus", "ehcache", "Spring", "Spring Security", "REST", "JSON", "Maven", "Swagger", "JWT", "OIDC", "Keycloak", "Snort", "LDAP", "RabbitMQ", "TCP/IP", "SSH", "FTP", "VPN", "Git", "GitLab", "SonarQube", "Jenkins", "GitHub", "Cassandra", "PostgreSQL", "NoSQL", "CI/CD", "Angular", "Karma"]
   },
   {
-    id: "education-2006",
-    company: "MINISTÈRE DE L'ÉDUCATION ET DE L'ENSEIGNEMENT SUPÉRIEUR",
-    position: "Enseignant d'informatique / Master Teacher / Formateur",
-    startDate: "Septembre 2006",
-    endDate: "Juin 2010",
+    id: "mayar-2006",
+    company: "Ministère de l'Éducation Secondaire et Universitaire",
+    position: "Enseignant en Informatique • Formateur Intel/Microsoft • Master Teacher",
+    startDate: "Octobre 2006",
+    endDate: "Mai 2010",
     isCurrent: false,
     projects: [
       {
-        name: "Enseignement et formation informatique",
-        description: "Enseignant au Lycée Secondaire (titulaire/CAPES) et à l'université",
+        name: "Enseignement de l'informatique au secondaire et universitaire",
+        description: "Formation complète des élèves et étudiants aux technologies de l'information et de la communication",
         achievements: [
-          "Enseignant au Lycée Secondaire (titulaire/CAPES)",
-          "Enseignant JAVA à l'université (Multimédia/Gestion)",
-          "Encadrement des Étudiants en projets de fin d'études",
-          "Formateur des enseignants pour les Technologies Intel (2CI)",
-          "Réalisation d'un site web proposant un module d'apprentissage de création des sites web dynamiques en PHP, MYSQL et Apache",
-          "Conception, création, mise en place et administration d'un logiciel de gestion de bibliothèque en JAVA",
-          "Traitement et suivi des réclamations clients",
-          "Diagnostic et correction des bugs avec forum dans le site",
-          "Gestion des priorités des demandes en fonction de leur criticité",
-          "Des exercices d'évaluation mis à jour de façon hebdomadaire avec score",
-          "Formation des nouvelles recrues"
+          "Enseignement des concepts fondamentaux de l'informatique (algorithmes, structures de données, logique)",
+          "Formation avancée à la programmation (Pascal, C, Turbo Pascal, Visual Basic)",
+          "Cours sur les systèmes d'exploitation (Windows, Linux) et administration réseau",
+          "Initiation aux bases de données et conception de systèmes d'information",
+          "Formation aux outils bureautiques (Suite Microsoft Office, OpenOffice)",
+          "Enseignement des technologies web (HTML, CSS, JavaScript)",
+          "Encadrement de projets de fin d'études et mémoires en informatique",
+          "Préparation des étudiants aux certifications professionnelles",
+          "Évaluation et notation des travaux pratiques et examens théoriques"
+        ]
+      },
+      {
+        name: "Formateur agréé Intel/Microsoft - Master Teacher",
+        description: "Certification et formation avancée dans les programmes officiels Intel et Microsoft",
+        achievements: [
+          "Certification Master Teacher Intel Teach Program pour l'intégration des TIC en éducation",
+          "Formation officielle Microsoft Certified Trainer (MCT) sur les technologies Microsoft",
+          "Animation de formations Intel Teach to the Future pour les enseignants",
+          "Développement de contenus pédagogiques certifiés Intel/Microsoft",
+          "Formation des formateurs sur les méthodologies d'enseignement avec les TIC",
+          "Encadrement et mentorat de nouveaux enseignants en informatique",
+          "Participation aux programmes de formation continue Intel/Microsoft",
+          "Évaluation et certification d'autres enseignants dans les programmes Intel",
+          "Création de modules de formation adaptés au contexte éducatif local"
+        ]
+      },
+      {
+        name: "Développement pédagogique et innovation éducative",
+        description: "Amélioration des programmes et méthodes d'enseignement en informatique",
+        achievements: [
+          "Élaboration de curricula et programmes d'informatique conformes aux standards internationaux",
+          "Création de supports de cours multimédia et ressources pédagogiques interactives",
+          "Mise en place de laboratoires informatiques équipés et fonctionnels",
+          "Organisation d'ateliers pratiques et de sessions de travaux dirigés",
+          "Développement de projets pédagogiques innovants intégrant les nouvelles technologies",
+          "Participation à l'amélioration des programmes d'études du ministère",
+          "Formation continue et mise à jour des compétences pédagogiques",
+          "Collaboration avec des experts internationaux en éducation technologique",
+          "Évaluation et amélioration continue des méthodes d'enseignement"
+        ]
+      },
+      {
+        name: "Administration système et support technique éducatif",
+        description: "Gestion complète de l'infrastructure informatique éducative",
+        achievements: [
+          "Administration et maintenance du parc informatique de l'établissement (50+ postes)",
+          "Configuration et gestion du réseau informatique pédagogique LAN/WAN",
+          "Installation, configuration et mise à jour des logiciels éducatifs et professionnels",
+          "Gestion des serveurs pédagogiques et bases de données étudiantes",
+          "Formation du personnel administratif et enseignant aux outils informatiques",
+          "Support technique quotidien pour les activités pédagogiques",
+          "Mise en place de solutions de sauvegarde et de sécurité des données",
+          "Gestion des licences logicielles et respect des droits d'auteur",
+          "Planification et exécution des mises à niveau technologiques"
+        ]
+      },
+      {
+        name: "Mémoire pédagogique pour titularisation - Site web dynamique d'apprentissage",
+        description: "Création d'une plateforme complète d'apprentissage web avec module EasyPHP/MySQL/Apache pour la titularisation",
+        achievements: [
+          "Conception et développement d'un site web dynamique complet pour l'apprentissage des technologies web",
+          "Création d'un module d'apprentissage interactif EasyPHP/MySQL/Apache avec progression pédagogique",
+          "Développement d'une mémoire éducative en Flash pour la visualisation des concepts techniques",
+          "Mise en place d'un forum interactif pour l'échange et l'entraide entre apprenants",
+          "Création de QCM dynamiques avec système de scoring automatique et suivi des progrès",
+          "Développement de l'architecture complète en PHP avec gestion des sessions utilisateurs",
+          "Programmation JavaScript avancée pour l'interactivité et la validation côté client",
+          "Design responsive avec CSS et HTML5 pour une expérience utilisateur optimale",
+          "Intégration de contenus multimédias Flash pour l'animation des concepts complexes",
+          "Base de données MySQL complète avec gestion des utilisateurs, scores et progressions",
+          "Interface d'administration pour la gestion des contenus et des utilisateurs",
+          "Système de notifications et de rappels pour motiver l'apprentissage",
+          "Module de statistiques avancées pour le suivi pédagogique",
+          "Documentation technique complète et guide utilisateur détaillé",
+          "Présentation et validation du mémoire devant commission de titularisation"
+        ]
+      },
+      {
+        name: "Recherche et développement en éducation technologique",
+        description: "Contribution à la recherche en pédagogie et nouvelles technologies",
+        achievements: [
+          "Recherche sur l'intégration des TIC dans l'enseignement supérieur",
+          "Participation à des conférences et séminaires sur l'éducation technologique",
+          "Publication d'articles sur les méthodes d'enseignement de l'informatique",
+          "Collaboration avec des universités pour des projets de recherche pédagogique",
+          "Évaluation de l'efficacité des nouvelles méthodes d'enseignement",
+          "Développement d'outils d'évaluation des compétences informatiques",
+          "Participation à des comités d'experts en éducation technologique",
+          "Contribution à l'élaboration de standards nationaux en informatique",
+          "Mentorat de jeunes enseignants-chercheurs en informatique"
         ]
       }
     ],
-    technologies: ["JAVA", ".NET", "JavaScript", "PHP", "Shell", "XML", "Dreamweaver", "FrontPage", "MySQL", "Windows", "Linux Ubuntu", "Mandriva", "VMware", "VirtualBox", "Easy PHP", "WAMP", "Apache", "CSS"]
+    technologies: ["Pascal", "C", "Turbo Pascal", "Visual Basic", "PHP", "EasyPHP", "Apache", "Windows Server", "Linux", "MS Office", "HTML", "CSS", "JavaScript", "Flash", "ActionScript", "SQL", "MySQL", "Access", "Réseaux TCP/IP", "Active Directory", "Pédagogie numérique", "Intel Teach Program", "Microsoft Learning", "Administration Système", "LMS", "E-learning", "Multimédia éducatif", "Forums Web", "QCM Dynamiques", "Sessions PHP"]
+  },
+  {
+    id: "pfe-2006",
+    company: "Faculté des sciences - Université",
+    position: "Mémoire de fin d'études Master En Informatique",
+    startDate: "Janvier 2006",
+    endDate: "Juin 2006", 
+    isCurrent: false,
+    projects: [
+      {
+        name: "Application d'imagerie médicale DICOM Multiplateforme en Java",
+        description: "Développement d'une application de traitement et visualisation d'images médicales au format DICOM dans le cadre du Master en Informatique",
+        achievements: [
+          "Analyse et conception d'une solution d'imagerie médicale complète",
+          "Développement d'une application de visualisation et traitement d'images DICOM en Java",
+          "Mise en place d'un package installable sur différentes plateformes (Windows, Linux et Mac)",
+          "Implémentation d'algorithmes de traitement d'images médicales",
+          "Interface utilisateur spécialisée pour le personnel médical développée avec JBuilder",
+          "Intégration des standards DICOM pour l'interopérabilité",
+          "Configuration multiplateforme pour assurer la compatibilité système",
+          "Tests et validation avec des données médicales réelles sur tous les OS",
+          "Documentation technique complète et mémoire de fin d'études",
+          "Présentation et soutenance devant jury académique et professionnels de santé"
+        ]
+      }
+    ],
+    technologies: ["Java", "JBuilder", "DICOM", "Traitement d'images", "Interface graphique", "Base de données", "UML", "SQL", "Algorithmique", "Imagerie médicale", "Multiplateforme", "Windows", "Linux", "Mac"]
+  },
+  {
+    id: "bibliotheque-2005",
+    company: "Faculté des sciences - Université",
+    position: "Projet de fin d'études",
+    startDate: "septembre 2004",
+    endDate: "Mai 2005",
+    isCurrent: false,
+    projects: [
+      {
+        name: "Application de gestion de bibliothèque de la faculté en Java",
+        description: "Création d'une application complète de gestion de bibliothèque pour la faculté",
+        achievements: [
+          "Analyse des besoins et conception de l'architecture de l'application",
+          "Développement d'une interface de gestion des livres et des emprunts",
+          "Système de gestion des utilisateurs (étudiants, enseignants, personnel)",
+          "Module de recherche avancée dans le catalogue",
+          "Gestion des emprunts, retours et pénalités",
+          "Génération de rapports statistiques sur l'utilisation de la bibliothèque",
+          "Interface d'administration pour la gestion du fonds documentaire",
+          "Tests et déploiement de l'application dans l'environnement de production"
+        ]
+      }
+    ],
+    technologies: ["Java", "SQL", "Base de données", "Interface graphique", "UML", "Conception", "Gestion de projet"]
   }
+  // Autres missions commentées
+  /*
+  {
+    id: "mayar-2010",
+    company: "MAYAR-INFO",
+    position: "Développeur Web / Java-JEE",
+    startDate: "Juin 2010",
+    endDate: "Janvier 2015",
+    isCurrent: false,
+    projects: [
+      {
+        name: "Applications de gestion de fournisseurs",
+        description: "MVP et refonte d'applications de gestion pour diverses entreprises",
+        achievements: [
+          "Réalisation de plusieurs MVP et refonte d'applications de gestion de fournisseurs",
+          "Conception et développement des applications de gestion des factures, commandes, fournisseurs et clients",
+          "Mise en place des bonnes pratiques de développement des services web REST",
+          "Développement de services web REST (Java 8, Spring, Spring security, spring-boot, Hibernate)"
+        ]
+      },
+      {
+        name: "Application de gestion et monitoring",
+        description: "Application pour la gestion de la configuration et de monitoring",
+        achievements: [
+          "Application pour la gestion de la configuration et de monitoring",
+          "Réalisation des tests unitaires et des tests d'intégration (Junit, Spring-test)",
+          "Réalisation d'un module de traitements par lots (batch) (Spring-batch, Spring-boot)",
+          "Mise en place de Hibernate Envers pour reconstituer l'historique des dossiers techniques"
+        ]
+      },
+      {
+        name: "MPS - Application Monoprix Market",
+        description: "Application et point de vente monoprix market",
+        achievements: [
+          "MPS : Application et point de vente monoprix market",
+          "Développement des applications de vente et de gestion de stock",
+          "Interface utilisateur optimisée pour les points de vente",
+          "Intégration des systèmes de paiement et de caisse"
+        ]
+      },
+      {
+        name: "POSF - Application Familia",
+        description: "Application et point de vente Familia",
+        achievements: [
+          "POSF : Application et point de vente Familia",
+          "Développement des sites et des Applications web",
+          "Gestion des stocks et des produits",
+          "Interface de caisse et de gestion des ventes"
+        ]
+      },
+      {
+        name: "Application d'audit accessibilité web",
+        description: "Application pour l'audit de l'accessibilité numérique du contenu web",
+        achievements: [
+          "Application pour l'audit de l'accessibilité numérique du contenu web",
+          "Analyse automatisée de la conformité WCAG",
+          "Génération de rapports d'audit détaillés",
+          "Interface de suivi des corrections"
+        ]
+      },
+      {
+        name: "Système de gestion d'aides à l'innovation",
+        description: "Système de gestion des dossiers d'aides à l'innovation",
+        achievements: [
+          "Système de gestion des dossiers d'aides à l'innovation",
+          "Site pour les demandes de financements des projets innovants",
+          "Workflow de validation des dossiers",
+          "Suivi des projets et reporting"
+        ]
+      }
+    ],
+    technologies: ["Windows", "Tomcat", "Jetty", "Spring-boot", "Spring-batch", "Java 8/11/12", "SoapUI", "Junit 5", "JPA", "Applet", "Bootstrap", "PHP", "JavaScript", "HTML5", "CSS3", "Hibernate 5.2", "Nexus", "ehcache", "Spring", "Spring Security", "REST", "JSON", "Maven", "Swagger", "JWT", "OIDC", "Keycloak", "Snort", "LDAP", "RabbitMQ", "TCP/IP", "SSH", "FTP", "VPN", "Git", "GitLab", "SonarQube", "Jenkins", "GitHub", "Cassandra", "PostgreSQL", "NoSQL", "CI/CD", "Angular", "Karma"]
+  }
+  */
 ];
 
 export const skills: Skill[] = [
@@ -365,9 +774,14 @@ export const skills: Skill[] = [
   { name: "GCP", level: 90, category: "cloud" },
   { name: "Azure", level: 90, category: "cloud" },
   { name: "NUBO (Cloud Privé)", level: 95, category: "cloud" },
+  { name: "OVH Cloud", level: 85, category: "cloud" },
+  { name: "Hetzner Cloud", level: 85, category: "cloud" },
+  { name: "DigitalOcean", level: 90, category: "cloud" },
+  { name: "IONOS (1and1)", level: 85, category: "cloud" },
+  { name: "Alibaba Cloud", level: 80, category: "cloud" },
   { name: "FinOps", level: 85, category: "cloud" },
   { name: "SysOps", level: 90, category: "cloud" },
-  
+
   // DevOps & Automation
   { name: "Ansible", level: 95, category: "devops" },
   { name: "Terraform", level: 90, category: "devops" },
@@ -378,7 +792,7 @@ export const skills: Skill[] = [
   { name: "Puppet", level: 70, category: "devops" },
   { name: "Vagrant", level: 85, category: "devops" },
   { name: "Packer", level: 80, category: "devops" },
-  
+
   // Containers & Orchestration
   { name: "Docker", level: 95, category: "containers" },
   { name: "Docker Compose", level: 95, category: "containers" },
@@ -388,7 +802,7 @@ export const skills: Skill[] = [
   { name: "OpenShift", level: 80, category: "containers" },
   { name: "Helm", level: 90, category: "containers" },
   { name: "Lens", level: 85, category: "containers" },
-  
+
   // Monitoring & Observability
   { name: "Prometheus", level: 95, category: "monitoring" },
   { name: "Grafana", level: 95, category: "monitoring" },
@@ -402,7 +816,7 @@ export const skills: Skill[] = [
   { name: "Node Exporter", level: 90, category: "monitoring" },
   { name: "Blackbox Exporter", level: 85, category: "monitoring" },
   { name: "HAProxy Exporter", level: 85, category: "monitoring" },
-  
+
   // Security & DevSecOps
   { name: "Vault", level: 90, category: "security" },
   { name: "Barbican", level: 85, category: "security" },
@@ -418,14 +832,21 @@ export const skills: Skill[] = [
   { name: "Snort", level: 85, category: "security" },
   { name: "pfSense", level: 85, category: "security" },
   { name: "Checkmarx", level: 75, category: "security" },
-  
+
   // Atlassian Suite
   { name: "Jira", level: 95, category: "atlassian" },
   { name: "Confluence", level: 95, category: "atlassian" },
   { name: "Jira Service Management", level: 90, category: "atlassian" },
   { name: "Bitbucket", level: 90, category: "atlassian" },
   { name: "EazyBI", level: 85, category: "atlassian" },
-  
+  { name: "ScriptRunner", level: 90, category: "atlassian" },
+  { name: "Bamboo", level: 80, category: "atlassian" },
+  { name: "Crowd", level: 75, category: "atlassian" },
+  { name: "Fisheye/Crucible", level: 75, category: "atlassian" },
+  { name: "Atlassian Access", level: 80, category: "atlassian" },
+  { name: "Statuspage", level: 75, category: "atlassian" },
+  { name: "Opsgenie", level: 80, category: "atlassian" },
+
   // Agile & Project Management
   { name: "Scrum", level: 95, category: "agile" },
   { name: "Kanban", level: 90, category: "agile" },
@@ -433,7 +854,7 @@ export const skills: Skill[] = [
   { name: "Project Management", level: 90, category: "agile" },
   { name: "Coaching Agile", level: 90, category: "agile" },
   { name: "Leadership Technique", level: 95, category: "agile" },
-  
+
   // Programming & Scripting
   { name: "Python", level: 90, category: "programming" },
   { name: "Shell/Bash", level: 95, category: "programming" },
@@ -443,7 +864,7 @@ export const skills: Skill[] = [
   { name: "Java/JEE", level: 85, category: "programming" },
   { name: "JavaScript", level: 80, category: "programming" },
   { name: "PHP", level: 75, category: "programming" },
-  
+
   // Databases
   { name: "PostgreSQL", level: 85, category: "databases" },
   { name: "MongoDB", level: 80, category: "databases" },
@@ -453,7 +874,34 @@ export const skills: Skill[] = [
   { name: "RethinkDB", level: 70, category: "databases" },
   { name: "SQLite", level: 80, category: "databases" },
   { name: "CosmosDB", level: 75, category: "databases" },
-  
+
+  // Test & Automatisation
+  { name: "JUnit", level: 90, category: "testing" },
+  { name: "Karma", level: 85, category: "testing" },
+  { name: "Selenium", level: 90, category: "testing" },
+  { name: "SonarQube", level: 95, category: "testing" },
+  { name: "SonarCloud", level: 90, category: "testing" },
+  { name: "Cypress", level: 85, category: "testing" },
+  { name: "Jest", level: 85, category: "testing" },
+  { name: "Spring Test", level: 85, category: "testing" },
+  { name: "Mockito", level: 80, category: "testing" },
+  { name: "TestNG", level: 80, category: "testing" },
+  { name: "Postman", level: 90, category: "testing" },
+  { name: "SoapUI", level: 85, category: "testing" },
+  { name: "JMeter", level: 85, category: "testing" },
+  { name: "Gatling", level: 80, category: "testing" },
+  { name: "Newman", level: 75, category: "testing" },
+  { name: "Robot Framework", level: 75, category: "testing" },
+  { name: "Cucumber", level: 80, category: "testing" },
+  { name: "TestCafe", level: 75, category: "testing" },
+  { name: "Playwright", level: 80, category: "testing" },
+  { name: "WebdriverIO", level: 75, category: "testing" },
+  { name: "Jasmine", level: 80, category: "testing" },
+  { name: "Mocha", level: 80, category: "testing" },
+  { name: "Chai", level: 75, category: "testing" },
+  { name: "Protractor", level: 70, category: "testing" },
+  { name: "Nightwatch", level: 70, category: "testing" },
+
   // Networking & Infrastructure
   { name: "TCP/IP", level: 90, category: "networking" },
   { name: "VPN", level: 85, category: "networking" },
@@ -469,9 +917,42 @@ export const skills: Skill[] = [
   { name: "IDS/IPS", level: 80, category: "networking" }
 ];
 
-export const stats = [
-  { value: `${calculateYearsOfExperience()}+`, label: "Années d'Expérience" },
-  { value: "50+", label: "Projets Réalisés" },
-  { value: "100+", label: "Technologies Maîtrisées" },
-  { value: "10+", label: "Secteurs d'Activité" }
-];
+// Mapping des entreprises vers leurs secteurs d'activité
+const companySectorMapping: { [key: string]: string } = {
+  "THALES": "Défense & Sécurité",
+  "GRDF": "Énergie & Services Publics", 
+  "BREAKPOINT TECHNOLOGY": "Technologies & Innovation",
+  "M2I - FORMATION": "Formation Professionnelle",
+  "MAYAR-INFO": "Finance & Gestion",
+  "Ministère de l'Éducation Secondaire et Universitaire": "Éducation Nationale",
+  "Faculté des sciences - Université": "Enseignement Supérieur & Recherche"
+};
+
+// Calcul dynamique des statistiques
+const calculateStats = () => {
+  const totalProjects = experiences.reduce((total, exp) => total + exp.projects.length, 0);
+
+  // Comptage dynamique des domaines de technologies basé sur les vraies catégories des compétences
+  const uniqueCategories = new Set(skills.map(skill => skill.category));
+  
+  // Comptage dynamique des secteurs basé uniquement sur les expériences réelles
+  const dynamicSectors = new Set(
+    experiences.map(exp => companySectorMapping[exp.company] || "Autres Technologies")
+  );
+
+  return [
+    { value: `${calculateYearsOfExperience()}+`, label: "Années d'Expérience" },
+    { value: `${totalProjects}+`, label: "Projets Réalisés" },
+    { value: `${uniqueCategories.size}+`, label: "Domaines de Technologies Maîtrisées" },
+    { value: `${dynamicSectors.size}+`, label: "Secteurs d'Activité" }
+  ];
+};
+
+export const stats = calculateStats();
+
+// Export des statistiques du site pour HeroSection
+export const siteStats = {
+  totalVisitors: 0,
+  currentConnected: 0,
+  createdAt: new Date().toISOString()
+};

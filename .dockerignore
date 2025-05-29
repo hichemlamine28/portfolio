@@ -1,0 +1,27 @@
+# Ne pas copier les dépendances locales
+node_modules
+npm-debug.log
+pnpm-lock.yaml
+yarn.lock
+
+# Ne pas copier les fichiers Docker et CI
+Dockerfile*
+.dockerignore
+docker-compose*.yml
+
+# Ne pas copier les fichiers de configuration personnels
+.env
+.env.local
+
+# Ne pas copier le répertoire dist (sera généré par le build)
+dist
+*.log
+
+# Ne pas copier les fichiers inutiles
+.git
+.vscode
+*.md
+
+# Ne pas copier les scripts personnels
+start-dev.sh
+docker*.sh

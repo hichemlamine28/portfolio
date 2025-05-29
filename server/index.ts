@@ -2,9 +2,27 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
+declare module 'express-serve-static-core' {
+  interface Request {
+    session?: { id?: string };
+  }
+}
+
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+
+// Gestion d'erreurs globale pour éviter les crashs
+process.on('uncaughtException', (error) => {
+  console.error('Exception non gérée:', error);
+  // Ne pas quitter le processus, juste logger l'erreur
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Promesse rejetée non gérée:', reason);
+  // Ne pas quitter le processus, juste logger l'erreur
+});
+
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: false, limit: '10mb' }));
 
 app.use((req, res, next) => {
   const start = Date.now();

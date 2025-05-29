@@ -1,7 +1,12 @@
 import { ChevronDown, Mail, Phone } from 'lucide-react';
 import { personalInfo } from '@/lib/cvData';
+import VisitorCounter from './VisitorCounter';
+import { Users, Globe, Calendar } from 'lucide-react'; // Import icons
+import { useVisitorStats } from '@/hooks/useVisitorStats';
 
 export default function HeroSection() {
+  const { stats: visitorStats } = useVisitorStats();
+  
   const scrollToSection = (href: string) => {
     const target = document.querySelector(href);
     if (target) {
@@ -18,75 +23,149 @@ export default function HeroSection() {
       <div className="absolute bottom-20 right-20 w-16 h-16 bg-warning/20 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
       <div className="absolute top-1/2 right-10 w-12 h-12 bg-primary/20 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
 
-      <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
-        <div className="animate-fade-in">
-          {/* Photo de profil moderne */}
-          <div className="mb-12 flex justify-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-center">
+          {/* Photo à gauche */}
+          <div className="lg:col-span-1 flex justify-center lg:justify-start animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <div className="relative group">
-              {/* Cercles d'arrière-plan animés */}
-              <div className="absolute inset-0 w-48 h-48 md:w-56 md:h-56 rounded-full bg-gradient-to-r from-accent/30 to-primary/30 animate-spin-slow"></div>
-              <div className="absolute inset-2 w-44 h-44 md:w-52 md:h-52 rounded-full bg-gradient-to-l from-primary/20 to-accent/20 animate-float"></div>
-              
-              {/* Photo principale */}
-              <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl backdrop-blur-sm mx-4 my-4">
+              <div className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl transform group-hover:scale-105 transition-all duration-500">
                 <img 
                   src="/hichem.jpg" 
-                  alt="Hichem ELAMINE"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  onError={(e) => {
-                    console.error('Image failed to load:', e);
-                    // Fallback to a backup image if the main one fails
-                    e.currentTarget.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face";
-                  }}
-                  onLoad={() => {
-                    console.log('Hichem photo loaded successfully');
-                  }}
+                  alt={`${personalInfo.firstName} ${personalInfo.lastName}`}
+                  className="w-full h-full object-cover"
+                  onLoad={() => console.log('Hichem photo loaded successfully')}
+                  onError={(e) => console.error('Failed to load Hichem photo:', e)}
                 />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
               </div>
-              
-              {/* Indicateur de statut */}
-              <div className="absolute bottom-6 right-6 w-6 h-6 bg-green-400 rounded-full border-4 border-white shadow-lg">
-                <div className="w-full h-full bg-green-400 rounded-full animate-pulse"></div>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+          </div>
+
+          {/* Contenu principal centré */}
+          <div className="lg:col-span-2 text-center lg:text-left animate-fade-in">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+              {personalInfo.firstName} {personalInfo.lastName}
+            </h1>
+            <h2 className="text-2xl md:text-3xl text-accent mb-8 font-medium">
+              {personalInfo.title}
+            </h2>
+            <p className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed">
+              Expert avec +{personalInfo.yearsOfExperience} ans d'expérience en architecture cloud/on-premises, DevSecOps, 
+              coaching d'équipes, gestion d'infrastructures et expertise produits Atlassian dans des environnements complexes
+            </p>
+
+            <div className="flex justify-center lg:justify-start space-x-6 mb-8">
+              <a 
+                href={`mailto:${personalInfo.email}`} 
+                className="bg-accent hover:bg-accent/90 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg"
+              >
+                Me Contacter
+              </a>
+              <a 
+                href="#experience" 
+                className="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105"
+              >
+                Voir mon CV
+              </a>
+            </div>
+
+            {/* Statistiques du site pour mobile - pleine largeur avec design coloré */}
+            <div className="lg:hidden mb-8 w-full animate-fade-in" style={{ animationDelay: '0.5s' }}>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 w-full">
+                <h3 className="text-lg font-semibold text-white mb-4 text-center">Statistiques du Site</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="bg-gradient-to-r from-blue-500/20 to-purple-600/20 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                    <div className="flex items-center justify-center space-x-3">
+                      <Users className="h-6 w-6 text-blue-400" />
+                      <div className="text-center">
+                        <div className="text-xl md:text-2xl font-bold text-white">{visitorStats?.totalVisitors || 0}</div>
+                        <div className="text-xs md:text-sm text-white/80">Total Visiteurs</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-green-500/20 to-emerald-600/20 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                    <div className="flex items-center justify-center space-x-3">
+                      <Globe className="h-6 w-6 text-green-400" />
+                      <div className="text-center">
+                        <div className="text-xl md:text-2xl font-bold text-white">{visitorStats?.currentConnected || 0}</div>
+                        <div className="text-xs md:text-sm text-white/80">En Ligne</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-purple-500/20 to-pink-600/20 backdrop-blur-sm rounded-lg p-4 border border-white/10 sm:col-span-1">
+                    <div className="flex items-center justify-center space-x-3">
+                      <Calendar className="h-6 w-6 text-purple-400" />
+                      <div className="text-center">
+                        <div className="text-xs md:text-sm text-white/80 mb-1">Date:</div>
+                        <div className="text-sm md:text-lg font-semibold text-white">
+                          {visitorStats?.createdAt ? new Date(visitorStats.createdAt).toLocaleDateString('fr-FR', {
+                            day: '2-digit',
+                            month: '2-digit', 
+                            year: 'numeric'
+                          }) : new Date().toLocaleDateString('fr-FR', {
+                            day: '2-digit',
+                            month: '2-digit', 
+                            year: 'numeric'
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-            <span className="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
-              {personalInfo.firstName}
-            </span>{' '}
-            <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
-              {personalInfo.lastName}
-            </span>
-          </h1>
-          <h2 className="text-2xl md:text-3xl font-light mb-8 text-gray-200">
-            {personalInfo.title}
-          </h2>
-          <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Expert avec +{personalInfo.yearsOfExperience} ans d'expérience en architecture cloud, automatisation DevOps 
-            et mise en œuvre de pratiques sécurisées dans des environnements complexes
-          </p>
+          {/* Statistiques du site à droite */}
+          <div className="lg:col-span-1 hidden lg:block animate-fade-in" style={{ animationDelay: '0.5s' }}>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <h3 className="text-xl font-semibold text-white mb-6 text-center">Statistiques du Site</h3>
+              <div className="space-y-4">
+                <div className="bg-gradient-to-r from-blue-500/20 to-purple-600/20 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                  <div className="flex items-center space-x-3">
+                    <Users className="h-6 w-6 text-blue-400" />
+                    <div>
+                      <div className="text-2xl font-bold text-white">{visitorStats?.totalVisitors || 0}</div>
+                      <div className="text-sm text-white/80">Total Visiteurs</div>
+                    </div>
+                  </div>
+                </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button
-              onClick={() => scrollToSection('#contact')}
-              className="bg-accent hover:bg-accent/90 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center"
-            >
-              <Mail className="mr-2" size={20} />
-              Me Contacter
-            </button>
-            <button
-              onClick={() => scrollToSection('#experience')}
-              className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center"
-            >
-              <svg className="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
-              Voir Mon Parcours
-            </button>
+                <div className="bg-gradient-to-r from-green-500/20 to-emerald-600/20 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                  <div className="flex items-center space-x-3">
+                    <Globe className="h-6 w-6 text-green-400" />
+                    <div>
+                      <div className="text-2xl font-bold text-white">{visitorStats?.currentConnected || 0}</div>
+                      <div className="text-sm text-white/80">En Ligne</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-r from-purple-500/20 to-pink-600/20 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                  <div className="flex items-center space-x-3">
+                    <Calendar className="h-6 w-6 text-purple-400" />
+                    <div>
+                      <div className="text-sm text-white/80 mb-1">Date:</div>
+                      <div className="text-lg font-semibold text-white">
+                        {visitorStats?.createdAt ? new Date(visitorStats.createdAt).toLocaleDateString('fr-FR', {
+                          day: '2-digit',
+                          month: '2-digit', 
+                          year: 'numeric'
+                        }) : new Date().toLocaleDateString('fr-FR', {
+                          day: '2-digit',
+                          month: '2-digit', 
+                          year: 'numeric'
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
 
           {/* Contact Info */}
           <div className="mt-12 flex flex-wrap justify-center gap-8 text-gray-300">
@@ -106,8 +185,17 @@ export default function HeroSection() {
                 LinkedIn
               </a>
             </div>
+            {personalInfo.github && (
+              <div className="flex items-center">
+                <svg className="mr-2 text-accent w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                  GitHub
+                </a>
+              </div>
+            )}
           </div>
-        </div>
       </div>
 
       {/* Scroll Indicator */}

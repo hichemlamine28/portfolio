@@ -7,6 +7,7 @@ const navItems = [
   { href: '#about', label: 'À Propos' },
   { href: '#experience', label: 'Expérience' },
   { href: '#skills', label: 'Compétences' },
+  { href: '#certifications', label: 'Certifications' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -17,7 +18,12 @@ export default function Navigation() {
   const scrollToSection = (href: string) => {
     const target = document.querySelector(href);
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const navHeight = 80; // Height of the fixed navigation
+      const offsetTop = target.offsetTop - navHeight;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
       setIsMobileMenuOpen(false);
     }
   };
