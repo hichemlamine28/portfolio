@@ -179,6 +179,18 @@ export default function SkillsSection() {
       icon: <Network className="text-4xl text-accent mb-3 mx-auto" size={36} />,
       category: 'networking',
       gradient: { from: 'from-accent/5', to: 'to-secondary/5' }
+    },
+    {
+      name: 'Deployment Strategies',
+      icon: <Settings className="text-4xl text-primary mb-3 mx-auto" size={36} />,
+      category: 'deployment',
+      gradient: { from: 'from-primary/5', to: 'to-accent/5' }
+    },
+    {
+      name: 'Architecture & Design Tools',
+      icon: <Award className="text-4xl text-secondary mb-3 mx-auto" size={36} />,
+      category: 'architecture',
+      gradient: { from: 'from-secondary/5', to: 'to-warning/5' }
     }
   ];
 
@@ -238,6 +250,11 @@ export default function SkillsSection() {
                 name: "AWS Certified Solutions Architect - Associate",
                 category: "Amazon Web Services",
                 logo: "/aws-logo.png"
+              },
+              {
+                name: "AWS Cloud Quest: Cloud Practitioner",
+                category: "Amazon Web Services",
+                logo: "/aws-cloud-quest-cloud-practitioner.png"
               },
               {
                 name: "AWS Introduction to Generative AI",
@@ -307,9 +324,14 @@ export default function SkillsSection() {
               },
               // Certiprof LifeLog Learning
               {
-                name: "LifeLog Learning Certification",
+                name: "LifeLog Learning Certification 2024",
                 category: "CertiProf",
                 logo: "/certiprof-logo.png"
+              },
+              {
+                name: "LifeLog Learning Certification 2025",
+                category: "CertiProf",
+                logo: "/lifelong-learning-2025.png"
               }
             ].map((cert, index) => (
               <div 

@@ -19,7 +19,7 @@ export interface Project {
 export interface Skill {
   name: string;
   level: number;
-  category: 'cloud' | 'devops' | 'monitoring' | 'security' | 'atlassian' | 'agile' | 'containers' | 'programming' | 'databases' | 'networking' | 'testing';
+  category: 'cloud' | 'devops' | 'monitoring' | 'security' | 'atlassian' | 'agile' | 'containers' | 'programming' | 'databases' | 'networking' | 'testing' | 'deployment' | 'architecture';
 }
 
 export interface PersonalInfo {
@@ -70,11 +70,21 @@ export const experiences: Experience[] = [
           "Build des images docker kolla & Kolla-Ansible pour déploiement des composantes openstack",
           "Build des images de boot Debian pour PXE",
           "Déploiement de Openstack via Kolla-ansible",
+          "Configuration et gestion des services Openstack (Nova, Neutron, Cinder, Swift, Keystone)",
+          "Administration et maintenance de l'infrastructure cloud privée NUBO",
+          "Gestion des réseaux virtuels et des ressources de calcul",
+          "Supervision et monitoring de l'infrastructure avec Prometheus et Grafana",
+          "Mise en place des politiques de sauvegarde et de restauration",
+          "Support technique niveau 3 et résolution des incidents critiques",
+          "Optimisation des performances et de la scalabilité de l'infrastructure",
+          "Formation et accompagnement des équipes techniques",
+          "Rédaction de la documentation technique et des procédures",
+          "Gestion des mises à jour de sécurité et des patches système",
           "Fix et correction des bugs et Support continu"
         ]
       }
     ],
-    technologies: ["OpenStack", "Docker", "Kubernetes", "Ansible", "Kolla"]
+    technologies: ["OpenStack", "Docker", "Podman", "Kubernetes", "Ansible", "Ansible-lint", "Kolla", "Kolla-ansible", "Terraform", "GitLab", "GitLab-CI", "Swift", "Python", "Shell/Bash", "Perl", "Go", "Debian", "CentOS", "Rocky Linux", "Ubuntu", "Chrony", "NTP", "NTPsec", "PXE", "Libvirt", "Virtual Manager", "QEMU", "KVM", "Prometheus", "Grafana", "Alert-manager", "Loki", "Promtail", "Victoria Metrics", "ELK Stack", "EFK Stack", "Beats (Filebeat, Metricbeat)", "Logstash", "Fluentd", "Nova", "Neutron", "Cinder", "Keystone", "Glance", "Heat", "Barbican", "Octavia", "Designate", "Magnum", "Manila", "Ironic", "Horizon", "Tempest", "Rally", "Ceph", "RabbitMQ", "MariaDB", "Galera", "HAProxy", "Keepalived", "Memcached", "Redis", "Nginx", "Apache", "Systemd", "Journald", "Rsyslog", "Logrotate", "Cron", "Git", "Vim", "Tmux", "Screen", "SSH", "SCP", "Rsync", "Vault", "Consul", "WAFF", "LVM", "LVG", "RAID (0,1,5,6,10)", "iSCSI", "NFS", "CIFS/SMB", "GlusterFS"]
   },
   {
     id: "thales-2021-2024",
@@ -781,12 +791,22 @@ export const skills: Skill[] = [
   { name: "Alibaba Cloud", level: 80, category: "cloud" },
   { name: "FinOps", level: 85, category: "cloud" },
   { name: "SysOps", level: 90, category: "cloud" },
+  { name: "AWS CloudWatch", level: 85, category: "cloud" },
+  { name: "Azure Monitor", level: 85, category: "cloud" },
+  { name: "CloudHealth", level: 80, category: "cloud" },
+  { name: "Finout", level: 75, category: "cloud" },
+  { name: "Azure Cost Management", level: 80, category: "cloud" },
+  { name: "Infracost", level: 75, category: "cloud" },
 
   // DevOps & Automation
   { name: "Ansible", level: 95, category: "devops" },
   { name: "Terraform", level: 90, category: "devops" },
   { name: "Jenkins", level: 90, category: "devops" },
   { name: "GitLab CI/CD", level: 95, category: "devops" },
+  { name: "GitHub Actions", level: 90, category: "devops" },
+  { name: "GitLab CI", level: 95, category: "devops" },
+  { name: "CircleCI", level: 85, category: "devops" },
+  { name: "Azure DevOps", level: 85, category: "devops" },
   { name: "Bitbucket Pipelines", level: 85, category: "devops" },
   { name: "Chef", level: 75, category: "devops" },
   { name: "Puppet", level: 70, category: "devops" },
@@ -802,6 +822,10 @@ export const skills: Skill[] = [
   { name: "OpenShift", level: 80, category: "containers" },
   { name: "Helm", level: 90, category: "containers" },
   { name: "Lens", level: 85, category: "containers" },
+  { name: "Kustomize", level: 85, category: "containers" },
+  { name: "Docker runners", level: 90, category: "containers" },
+  { name: "Kubernetes runners", level: 90, category: "containers" },
+  { name: "Self-hosted agents", level: 85, category: "containers" },
 
   // Monitoring & Observability
   { name: "Prometheus", level: 95, category: "monitoring" },
@@ -816,6 +840,16 @@ export const skills: Skill[] = [
   { name: "Node Exporter", level: 90, category: "monitoring" },
   { name: "Blackbox Exporter", level: 85, category: "monitoring" },
   { name: "HAProxy Exporter", level: 85, category: "monitoring" },
+  { name: "Datadog", level: 85, category: "monitoring" },
+  { name: "New Relic", level: 80, category: "monitoring" },
+  { name: "Dynatrace", level: 80, category: "monitoring" },
+  { name: "Jaeger", level: 80, category: "monitoring" },
+  { name: "OpenTelemetry", level: 85, category: "monitoring" },
+  { name: "Zipkin", level: 75, category: "monitoring" },
+  { name: "EFK", level: 85, category: "monitoring" },
+  { name: "Fluent Bit", level: 80, category: "monitoring" },
+  { name: "PagerDuty", level: 80, category: "monitoring" },
+  { name: "VictorOps", level: 75, category: "monitoring" },
 
   // Security & DevSecOps
   { name: "Vault", level: 90, category: "security" },
@@ -832,6 +866,7 @@ export const skills: Skill[] = [
   { name: "Snort", level: 85, category: "security" },
   { name: "pfSense", level: 85, category: "security" },
   { name: "Checkmarx", level: 75, category: "security" },
+  { name: "SonarQube", level: 95, category: "security" },
 
   // Atlassian Suite
   { name: "Jira", level: 95, category: "atlassian" },
@@ -854,6 +889,11 @@ export const skills: Skill[] = [
   { name: "Project Management", level: 90, category: "agile" },
   { name: "Coaching Agile", level: 90, category: "agile" },
   { name: "Leadership Technique", level: 95, category: "agile" },
+  { name: "Azure Boards", level: 80, category: "agile" },
+  { name: "Trello", level: 85, category: "agile" },
+  { name: "ClickUp", level: 80, category: "agile" },
+  { name: "Notion", level: 85, category: "agile" },
+  { name: "Productboard", level: 75, category: "agile" },
 
   // Programming & Scripting
   { name: "Python", level: 90, category: "programming" },
@@ -901,6 +941,11 @@ export const skills: Skill[] = [
   { name: "Chai", level: 75, category: "testing" },
   { name: "Protractor", level: 70, category: "testing" },
   { name: "Nightwatch", level: 70, category: "testing" },
+  { name: "Postman", level: 90, category: "testing" },
+  { name: "Newman", level: 75, category: "testing" },
+  { name: "Playwright", level: 80, category: "testing" },
+  { name: "Inspec", level: 75, category: "testing" },
+  { name: "scancli", level: 70, category: "testing" },
 
   // Networking & Infrastructure
   { name: "TCP/IP", level: 90, category: "networking" },
@@ -914,7 +959,39 @@ export const skills: Skill[] = [
   { name: "FTP", level: 85, category: "networking" },
   { name: "DNS", level: 85, category: "networking" },
   { name: "Firewall", level: 85, category: "networking" },
-  { name: "IDS/IPS", level: 80, category: "networking" }
+  { name: "IDS/IPS", level: 80, category: "networking" },
+
+  // Deployment Strategies
+  { name: "Direct Deployment (In-Place)", level: 90, category: "deployment" },
+  { name: "Blue-Green Deployment", level: 95, category: "deployment" },
+  { name: "Canary Release", level: 90, category: "deployment" },
+  { name: "Rolling Update", level: 95, category: "deployment" },
+  { name: "A/B Testing", level: 85, category: "deployment" },
+  { name: "Shadow Deployment", level: 80, category: "deployment" },
+  { name: "Feature Toggles (Feature Flags)", level: 85, category: "deployment" },
+  { name: "Progressive Delivery", level: 80, category: "deployment" },
+  { name: "Immutable Deployments", level: 85, category: "deployment" },
+
+
+  // Architecture & Design Tools
+  { name: "Lucidchart", level: 85, category: "architecture" },
+  { name: "Diagrams.net (Draw.io)", level: 90, category: "architecture" },
+  { name: "Whimsical", level: 80, category: "architecture" },
+  { name: "Excalidraw", level: 85, category: "architecture" },
+  { name: "Structurizr", level: 75, category: "architecture" },
+  { name: "Architecture as Code", level: 80, category: "architecture" },
+  { name: "TOGAF", level: 75, category: "architecture" },
+  { name: "C4 Model", level: 80, category: "architecture" },
+  { name: "ArchiMate", level: 70, category: "architecture" },
+  { name: "Miro", level: 85, category: "architecture" },
+  { name: "Figma", level: 80, category: "architecture" },
+  { name: "PlantUML", level: 85, category: "architecture" },
+
+
+
+
+
+
 ];
 
 // Mapping des entreprises vers leurs secteurs d'activité
@@ -934,7 +1011,7 @@ const calculateStats = () => {
 
   // Comptage dynamique des domaines de technologies basé sur les vraies catégories des compétences
   const uniqueCategories = new Set(skills.map(skill => skill.category));
-  
+
   // Comptage dynamique des secteurs basé uniquement sur les expériences réelles
   const dynamicSectors = new Set(
     experiences.map(exp => companySectorMapping[exp.company] || "Autres Technologies")

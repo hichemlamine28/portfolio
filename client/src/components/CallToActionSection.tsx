@@ -1,0 +1,2 @@
+
+// Composant supprimé - plus utilisé

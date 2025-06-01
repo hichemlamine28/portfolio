@@ -1,12 +1,11 @@
-import { ChevronDown, Mail, Phone } from 'lucide-react';
+import { ChevronDown, Mail, Phone, Users, Globe, Calendar } from 'lucide-react';
 import { personalInfo } from '@/lib/cvData';
-import VisitorCounter from './VisitorCounter';
-import { Users, Globe, Calendar } from 'lucide-react'; // Import icons
 import { useVisitorStats } from '@/hooks/useVisitorStats';
+import CVGenerator from './CVGenerator';
 
 export default function HeroSection() {
   const { stats: visitorStats } = useVisitorStats();
-  
+
   const scrollToSection = (href: string) => {
     const target = document.querySelector(href);
     if (target) {
@@ -54,19 +53,30 @@ export default function HeroSection() {
               coaching d'équipes, gestion d'infrastructures et expertise produits Atlassian dans des environnements complexes
             </p>
 
-            <div className="flex justify-center lg:justify-start space-x-6 mb-8">
+            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 mb-8">
               <a 
                 href={`mailto:${personalInfo.email}`} 
-                className="bg-accent hover:bg-accent/90 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="group bg-gradient-to-r from-accent to-emerald-500 hover:from-accent/90 hover:to-emerald-400 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-accent/25 border-2 border-transparent"
               >
-                Me Contacter
+                <span className="flex items-center justify-center">
+                  <Mail className="w-4 h-4 mr-2 group-hover:animate-pulse" />
+                  Me Contacter
+                </span>
               </a>
+
               <a 
                 href="#experience" 
-                className="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105"
+                className="group bg-gradient-to-r from-transparent to-transparent hover:from-white/10 hover:to-white/5 text-white px-6 py-3 rounded-full font-medium border-2 border-white/70 hover:border-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-white/20"
               >
-                Voir mon CV
+                <span className="flex items-center justify-center">
+                  <Users className="w-4 h-4 mr-2 group-hover:animate-pulse" />
+                  Voir mon CV
+                </span>
               </a>
+
+              <div className="flex justify-center">
+                <CVGenerator />
+              </div>
             </div>
 
             {/* Statistiques du site pour mobile - pleine largeur avec design coloré */}
@@ -100,7 +110,7 @@ export default function HeroSection() {
                       <div className="text-center">
                         <div className="text-xs md:text-sm text-white/80 mb-1">Date:</div>
                         <div className="text-sm md:text-lg font-semibold text-white">
-                          {visitorStats?.createdAt ? new Date(visitorStats.createdAt).toLocaleDateString('fr-FR', {
+                          {visitorStats?.currentTime ? new Date(visitorStats.currentTime).toLocaleDateString('fr-FR', {
                             day: '2-digit',
                             month: '2-digit', 
                             year: 'numeric'
@@ -149,7 +159,7 @@ export default function HeroSection() {
                     <div>
                       <div className="text-sm text-white/80 mb-1">Date:</div>
                       <div className="text-lg font-semibold text-white">
-                        {visitorStats?.createdAt ? new Date(visitorStats.createdAt).toLocaleDateString('fr-FR', {
+                        {visitorStats?.currentTime ? new Date(visitorStats.currentTime).toLocaleDateString('fr-FR', {
                           day: '2-digit',
                           month: '2-digit', 
                           year: 'numeric'

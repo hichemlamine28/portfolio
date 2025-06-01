@@ -7,7 +7,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { personalInfo } from '@/lib/cvData';
-import { apiRequest } from '@/lib/queryClient';
 
 export default function ContactSection() {
   const { ref, isVisible } = useScrollAnimation();
@@ -31,7 +30,17 @@ export default function ContactSection() {
     setIsSubmitting(true);
 
     try {
-      await apiRequest('POST', '/api/contact', formData);
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
       
       toast({
         title: "Message envoyé avec succès !",

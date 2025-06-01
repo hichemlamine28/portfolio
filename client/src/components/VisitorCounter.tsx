@@ -63,7 +63,7 @@ export default function VisitorCounter() {
             <Calendar className="h-3 w-3" />
             <span>Date:</span>
           </div>
-          <span>{formatDate(stats.createdAt)}</span>
+          <span>{formatDate(stats.currentTime || new Date().toISOString())}</span>
         </div>
       </div>
     </div>

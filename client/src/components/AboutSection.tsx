@@ -3,6 +3,7 @@ import { Users, Trophy, Coffee, Target } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { personalInfo, stats, experiences, skills } from '@/lib/cvData';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { Button } from "@/components/ui/button"
 
 // Mapping des entreprises vers leurs secteurs d'activité (synchronisé avec cvData.ts)
 const companySectorMapping: { [key: string]: string } = {
@@ -27,7 +28,9 @@ const categoryMapping: { [key: string]: string } = {
   "agile": "Agile & Project Management",
   "programming": "Programming & Scripting (Python, Bash, PowerShell)",
   "networking": "Networking & Infrastructure",
-  "testing": "Testing & Quality Assurance"
+  "testing": "Testing & Quality Assurance",
+  "deployment": "Deployment Strategies",
+  "architecture": "Architecture & Design Tools"
 };
 
 const getSectorsData = () => {
@@ -45,6 +48,8 @@ const getTechnologiesData = () => {
     .map(category => categoryMapping[category] || category)
     .sort();
 };
+
+
 
 export default function AboutSection() {
   const { ref, isVisible } = useScrollAnimation();
@@ -325,12 +330,10 @@ export default function AboutSection() {
                   })}
                 </div>
 
-                
+
 
               </TooltipProvider>
             </div>
-
-
           </div>
         </div>
       </div>
