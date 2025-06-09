@@ -51,15 +51,33 @@ shell
 ##### 📌 En local (npm)
 
 ```bash
-npm install
-npm run build
-npm start  # écoute sur http://localhost:5000
+./start-dev.sh
 ```
+         écoute sur http://localhost:5000
+
+🐋 Avec Docker
+```bash
+docker-run.sh
+```
+        accès via http://localhost:8080
+
+🐋 Pour arreter/nettoyer Docker
+```bash
+docker-stop.sh
+```
+
+
 🐋 Avec Docker Compose
 ```bash
-   docker-compose up -d --build
+./docker-compose-up.sh
 ```
-  accès via http://localhost:8080
+        accès via http://localhost:8080
+
+
+🐋 Pour arreter/nettoyer Docker Compose
+```bash
+./docker-compose-down.sh
+```
 
 💡 Fonctionnalités Clés
 
@@ -72,7 +90,7 @@ npm start  # écoute sur http://localhost:5000
 💻 Interface web ultra-réactive et moderne
 
 📦 Scripts inclus
-scripts/start.sh — initialisation locale simple
+start-dev.sh — initialisation locale simple
 
 Dans package.json, commandes npm pour build, start, test (si présents)
 
