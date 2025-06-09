@@ -2,7 +2,6 @@
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-4.9-blue?logo=typescript)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript)
-![NPM Version](https://img.shields.io/badge/npm-v$(npm%20view%20hichemlamine28-portfolio%20version)-red?logo=npm)
 ![Docker](https://img.shields.io/badge/docker-compose-blue?logo=docker)
 ![License](https://img.shields.io/github/license/hichemlamine28/portfolio)
 ![Last Commit](https://img.shields.io/github/last-commit/hichemlamine28/portfolio)
