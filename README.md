@@ -55,12 +55,12 @@ shell
 npm install
 npm run build
 npm start  # écoute sur http://localhost:5000
-
+```
 🐋 Avec Docker Compose
 ```bash
    docker-compose up -d --build
 ```
-# accès via http://localhost:8080
+  accès via http://localhost:8080
 
 💡 Fonctionnalités Clés
 
@@ -84,7 +84,6 @@ Possibilité d’extension vers cloud ou serveur Docker
 
 🧼 Nettoyage
 ```bash
-
 docker-compose down --volumes
 rm -rf node_modules dist
 ```
